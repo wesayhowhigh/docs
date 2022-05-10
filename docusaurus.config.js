@@ -66,30 +66,34 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'Tutorial',
-                to: '/docs/infrastructure/intro',
+                label: 'Development',
+                to: '/',
+              },
+              {
+                label: 'Plugins',
+                to: '/plugins/intro',
               },
             ],
           },
           {
-            title: 'Community',
+            title: 'JUMP',
             items: [
               {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+                label: 'Website',
+                href: 'https://www.wesayhowhigh.com',
               },
               {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
+                label: 'Github',
+                href: 'https://github.com/wesayhowhigh/',
               },
               {
-                label: 'Twitter',
-                href: 'https://twitter.com/docusaurus',
+                label: 'Instagram',
+                href: 'https://twitter.com/wesayhowhigh',
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} JUMP. Built with Docusaurus.`,
       },
       prism: {
         theme: lightCodeTheme,

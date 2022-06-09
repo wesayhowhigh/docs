@@ -23,5 +23,8 @@ sidebar_label: Backend
 ## Usage
 
 
+### Latest Item Report Widget
+
+![Many Latest Item Report Widgets in action!](./assets/latest-item-report-widget-1.png)
 
 ## Troubleshooting

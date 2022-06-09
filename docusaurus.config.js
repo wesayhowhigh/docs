@@ -57,6 +57,17 @@ const config = {
             position: 'left',
             label: 'Plugins',
           },
+          {
+            type: 'doc',
+            docId: 'websites/intro',
+            position: 'left',
+            label: 'Websites',
+          },
+          {
+            href: 'https://jump-team.jump-ops.com/',
+            position: 'right',
+            label: 'JUMP Team',
+          }
         ],
       },
       footer: {
@@ -83,6 +94,10 @@ const config = {
                 href: 'https://www.wesayhowhigh.com',
               },
               {
+                label: 'Team App',
+                href: 'https://jump-team.jump-ops.com/',
+              },
+              {
                 label: 'Github',
                 href: 'https://github.com/wesayhowhigh/',
               },
@@ -98,6 +113,7 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
+        additionalLanguages: ['php'],
       },
     }),
 };

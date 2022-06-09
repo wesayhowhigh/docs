@@ -3,5 +3,5 @@ sidebar_position: 1
 sidebar_label: Introduction
 ---
 
-# Pages Plugin Intro
+# Saddle Skedaddle Intro
 Hello there

@@ -41,6 +41,12 @@ All Plugins should have a section created already inside `/plugins/LANGUAGE/PLUG
 
 Looking at the existing structure you should be able to see that a folder automatically creates a collapsible sidebar menu, with the MarkDown files inside, representing individual pages.
 
+If you're creating a file for a `Plugin` you can base the structure on the Template file - located at `/docs/plugins/_template.md`.
+
+You may also deduce that prefixing a file with an underscore prevents it from being included in the Frontend - so you can only find this template in the repository itself.
+
+
+
 ## Customising The Page
 
 You are free to use all standard Markdown features. 

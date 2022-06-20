@@ -43,7 +43,7 @@ User-agent: *
 Disallow: /
 ```
 
-Example of robots.txt file to **Allow** the full website from being crawled but **Block** certain URL's. 
+Example of robots.txt file to **Allow** the full website to be crawled but **Block** certain URL's. 
 ```txt
 User-agent: *
 Disallow: /test-url-1

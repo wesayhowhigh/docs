@@ -5,6 +5,10 @@ sidebar_label: Analytics
 
 # Analytics Plugin
 
+:::info
+As of 2022 all sites should use GA4 analytics
+:::
+
 ## Introduction
 
 The JUMP Analytics Plugin embeds the google tag manager tracking code and gtag/ga functions on your website.

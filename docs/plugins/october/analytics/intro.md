@@ -7,7 +7,7 @@ sidebar_label: Analytics
 
 ## Introduction
 
-The JUMP Analytics Plugin embed the google tag manager tracking code and gtag/ga functions on your website.
+The JUMP Analytics Plugin embeds the google tag manager tracking code and gtag/ga functions on your website.
 
 ## Installation
 

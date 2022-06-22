@@ -128,7 +128,7 @@ class ExampleCookieType extends CookieBase
 }
 ```
 
-The options for perference are `REQUIRED` or `OPTIONAL` (default). If a cookie type is required the user cannot opt out of its usage due to its crical business requirement.
+The options for preference are `REQUIRED` or `OPTIONAL` (default). If a cookie type is required the user cannot opt out of its usage due to its critical business requirement.
 
 Each cookie type will be listed on the cooke perferences page so users and customise there exeperience and choose whcih cookies to allow or deny.
 

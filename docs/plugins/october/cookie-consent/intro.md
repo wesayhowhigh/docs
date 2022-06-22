@@ -139,7 +139,7 @@ Remember to wrap any scripts, iframes etc. that use this new cookie in an if `co
 ## Troubleshooting
 
 + If you receive an error when viewing the cookie preferences page the first time, be sure to go to the cookie consent settings and do the initial save. `/backend/system/settings/update/jump/cookieconsent/settings#primarytab-consent-popup`
-+ If the cookie popup is showing on every page after it has been dismissed or accepted, check the config/cookie.php file of the site has the cookie listed as unencrypted os the JavaScript can read it.
++ If the cookie popup is showing on every page after it has been dismissed or accepted, check the config/cookie.php file of the site has the cookie listed as unencrypted so the JavaScript can read it.
 
 ```php
     'unencryptedCookies' => [

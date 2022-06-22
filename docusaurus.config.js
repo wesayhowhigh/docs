@@ -43,6 +43,7 @@ const config = {
         logo: {
           alt: 'JUMP',
           src: 'img/logo.svg',
+          srcDark: 'img/logo-on-dark.svg',
         },
         items: [
           {

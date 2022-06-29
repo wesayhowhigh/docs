@@ -24,17 +24,22 @@ Type `composer require jump/oc-metadata-plugin` into your project root terminal.
 ### Supported Meta Fields
 
 The meta information you can define for a page is as follows:
-- General Meta Information
+- General
   - HTML Title
   - Meta Description
+  - Meta Image (excl. Pages Plugin)
+- SEO
   - Canonical Tag (the URL that represents the main version of the page)
+  - The option to hide the page from being indexed by crawlers
 - Open Graph
-  - Open Graph Title
-  - Open Graph Description
+  - Title
+  - Description
+  - Image (excl. Pages Plugin)
 - Twitter Card
-  - Twitter Card Title
-  - Twitter Card Description
-  
+  - Title
+  - Description
+  - Image (excl. Pages Plugin)
+
 ### In The Backend
 #### Within The Pages Plugin
 
@@ -44,20 +49,23 @@ You can see and edit this data by clicking into the page within the Pages Plugin
 
 #### Within Custom Plugins
 
-To add the metadata fields to your custom plugin models, use the **Metadatable** trait and make sure you include the **getDefaultMetadata()** method stub.
+Go to the model you wish to add meta information to, and implement the **Metadatable Class**. Make sure you also use the **Metadatable Trait**. 
+
+You will also need to add the **getDefaultMetadata()** method stub:
 
 ```php title="/plugins/app/blog/models/Post.php"
 <?php
 
   namespace App\Blog\Models;
   
-  use Jump\Metadata\Traits\Metadatable;
+  use Jump\Metadata\Classes\Metadatable;
+  use Jump\Metadata\Traits\Metadatable as MetadatableTrait;
   use Model;
   use Jump\Images\Classes\Glide;
   
-  class Post extends Model
+  class Post extends Model implements Metadatable
   {
-    use Metadatable;
+    use MetadatableTrait;
     
     ...
     
@@ -68,7 +76,7 @@ To add the metadata fields to your custom plugin models, use the **Metadatable**
   }
 ```
 
-This is where you will state which fields from the database will populate each of the metadata attributes, should a user leave them blank:
+Inside this method, you will be building an array of the fallbacks this model will use in place of missing meta information:
 
 ```php title="/plugins/app/blog/models/Post.php"
     protected function getDefaultMetadata(): array
@@ -87,10 +95,17 @@ This is where you will state which fields from the database will populate each o
     }
   }
 ```
+:::note
 
-Once your model has been set up to use Metadatable, go to the Plugin in the CMS and you will see the meta fields are now available to be edited:
+You do not need to define **all** of the meta information here. As you will see, any frontend fallbacks will also be in play once you view your plugin pages on the frontend.
 
-![The meta fields as shown with a custom plugin](./assets/metadata-plugin-backend.png)
+For example, if you only define an HTML Title, the Twitter Card and Open Graph titles will default to that.
+
+:::
+
+Once your model has been set up to use Metadatable, go to the Plugin in the CMS and then select a record. You will see the meta information is now available to be edited:
+
+![The meta fields as shown with a custom plugin](./assets/metadata-plugin-backend-meta.png)
 
 ### On The Front End
 By default, in the base project you can find the front end usage of the Metadata plugin in the **meta.htm** file.
@@ -99,11 +114,11 @@ Initially, a range of variables are set, providing various fallbacks should cert
 
 ```htm title="/themes/app/partials/meta.htm"
 {% set displayTitle = this.page.meta_title ? this.page.meta_title : this.page.title %}
-{% set fallbackImage = url('/themes/app/assets/images/social-media-logo.jpg') %}
+{% set fallbackImage = url('/themes/app/assets/images/social-media-logo.png') %}
 {% set displayImage = this.page.meta_image ? url(this.page.meta_image) : fallbackImage %}
 
 {% set displayOpenGraphTitle = this.page.meta_open_graph_title ? this.page.meta_open_graph_title : displayTitle %}
-{% set displayOpenGraphDescription = this.page.meta_open_graph_description ? this.page.meta_open_graph_description : this.page.meta_description %}
+{% set displayOpenGraphDescription = this.pagxe.meta_open_graph_description ? this.page.meta_open_graph_description : this.page.meta_description %}
 {% set displayOpenGraphImage = this.page.meta_open_graph_image ? this.page.meta_open_graph_image : displayImage %}
 
 {% set displayTwitterCardTitle = this.page.meta_twitter_card_title ? this.page.meta_twitter_card_title : displayTitle %}
@@ -115,13 +130,13 @@ Once set, they are then assigned to the appropriate meta tags:
 
 ```htm title="/themes/app/partials/meta.htm"
 <title>{{ displayTitle }} | {{ site('name') }}</title>
+<meta name="title" content="{{ this.page.meta_title }}">
+
+{% if this.page.meta_description %}
 <meta name="description" content="{{ stripTags(this.page.meta_description) }}">
-
-<link rel="canonical" href="{{ url(this.page.meta_canonical ?: getCanonicalLink()) }}" />
-
-{% if this.page.meta_prevent_crawling %}
-<meta name="robots" content="noindex">
 {% endif %}
+
+<link rel="canonical" href="{{ url(getProductListCanonical() ?: this.page.meta_canonical ?: getCanonicalLink()) }}" />
 
 <meta name="twitter:image" content="{{ displayTwitterCardImage }}">
 <meta name="twitter:card" content="summary_large_image">
@@ -136,5 +151,4 @@ Once set, they are then assigned to the appropriate meta tags:
 <meta property="og:image" content="{{ displayOpenGraphImage }}"/>
 <meta property="og:site_name" content="{{ site('name') }}" />
 <meta property="og:url" content="{{ getCanonicalLink() }}" />
-
 ```

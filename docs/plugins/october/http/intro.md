@@ -34,3 +34,9 @@ composer require jump/oc-http-plugin
 ## Repository
 
 [Github](https://github.com/wesayhowhigh/oc-http-plugin)
+
+## Troubleshooting
+
+### Basic Auth not working?
+
+If basic auth credentials modal keeps popping up on every page request, ensure you have added the `Authorization` header to the Whitelist in the CloudFront distribution

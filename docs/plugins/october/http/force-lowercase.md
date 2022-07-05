@@ -5,7 +5,7 @@ sidebar_label: Force Lowercase
 
 # Force Lowercase
 
-When enabled, the site to always redirect from to lowercase if any captials are detected, for canonical urls.
+When enabled, the site will always redirect to lowercase if any uppercase characters are detected, for canonical urls.
 
 ## Setup
 

@@ -5,7 +5,7 @@ sidebar_label: Force HTTPS
 
 # Force HTTPS
 
-When enabled, the site to always redirects from http to https.
+When enabled, the site will always redirect from http to https.
 
 ## Setup
 

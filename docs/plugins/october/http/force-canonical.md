@@ -5,7 +5,7 @@ sidebar_label: Force Canonical
 
 # Force Canonical
 
-When enabled, non-www is redirected to www, for  canconcial urls.
+When enabled, non-www is redirected to www, for canonical urls.
 
 ## Setup
 

@@ -5,7 +5,7 @@ sidebar_label: Remove Trailing Slash
 
 # Remove Trailing Slash
 
-When enabled, ensures the trailing slash is removed from the site, for canoncial urls.
+When enabled, ensures the trailing slash is removed from the site, for canonical urls.
 
 ## Setup
 

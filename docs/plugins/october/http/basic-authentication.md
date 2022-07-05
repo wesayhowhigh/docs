@@ -19,6 +19,10 @@ To enable basic authentication on the site you must set `JUMP_HTTP_AUTH_ENABLED`
 
 A `JUMP_HTTP_AUTH_USERNAME` and `JUMP_HTTP_AUTH_PASSWORD` must be also be set for it to work.
 
+:::info
+Note that the `Authorization` CloudFront Header must be added to the WhiteList in the CloudFront distro config, otherwise it will not work and you will keep getting the popup
+:::
+
 ## Setup
 
 ```dotenv title=".env"

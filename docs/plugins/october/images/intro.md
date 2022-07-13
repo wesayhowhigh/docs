@@ -56,7 +56,7 @@ This will take the image from the media plugin, and render the SVG code directly
 So, for example:
 
 ```htm title='your-twig-file.htm'
-<img src="{{ self.image | svg }}" alt="...">
+{{ self.image | svg }}
 ```
 
 would be rendered in the browser as:
@@ -66,5 +66,3 @@ would be rendered in the browser as:
   <rect width="300" height="100" style="fill:rgb(0,0,255);stroke-width:3;stroke:rgb(0,0,0)" />
 </svg>
 ```
-
-## Troubleshooting

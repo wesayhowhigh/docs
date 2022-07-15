@@ -38,10 +38,6 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      metadata: [
-          {name: 'robots', content: 'noindex'},
-          {name: 'og:image', content: '/img/logo.png'},
-      ],
       navbar: {
         title: 'JUMP Docs',
         logo: {

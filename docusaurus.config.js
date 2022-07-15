@@ -116,6 +116,8 @@ const config = {
         darkTheme: darkCodeTheme,
         additionalLanguages: ['php'],
       },
+    }, {
+      metadata: [{name: 'robots', content: 'noindex'}],
     }),
 };
 

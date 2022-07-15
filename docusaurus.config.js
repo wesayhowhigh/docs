@@ -38,6 +38,7 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      metadata: [{name: 'robots', content: 'noindex'}],
       navbar: {
         title: 'JUMP Docs',
         logo: {
@@ -116,8 +117,6 @@ const config = {
         darkTheme: darkCodeTheme,
         additionalLanguages: ['php'],
       },
-    }, {
-      metadata: [{name: 'robots', content: 'noindex'}],
     }),
 };
 

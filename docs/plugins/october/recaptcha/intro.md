@@ -65,58 +65,6 @@ To add reCAPTCHA to your form, you would simply add the following just before th
 <p data-validate-for="g-recaptcha-response"></p>
 ```
 
-This markup tag will bring through all the code needed to add a reCAPTCHA field to your form:
-
-**As rendered by Version 3:**
-```htm  
-<input type="hidden" name="g-recaptcha-response" class="g-recaptcha-response-placeholder">
-
-<script>
-    if (!document.querySelector('script[src^="https://www.google.com/recaptcha/api.js"]')) {
-        window.resetRecaptcha = window.resetRecaptcha ? window.resetRecaptcha : function resetRecaptcha() {
-            var pageURL = window.location.href.split('?')[0].split('#')[0];
-            var action = pageURL.substr(pageURL.lastIndexOf('/') + 1).replace('/', '').replace(/[^a-zA-Z0-9]/g,'_');
-            grecaptcha.execute('PUBLIC-KEY-ASSIGNED-BY-GOOGLE', { action: action })
-                .then(function (token) {
-                    var responses = document.getElementsByClassName('g-recaptcha-response-placeholder');
-
-                    for (let i = 0; i < responses.length; i++) {
-                        responses[i].value = token;
-                    }
-                });
-            }
-
-            window.onloadRecaptchaCallback = window.onloadRecaptchaCallback ? window.onloadRecaptchaCallback : function onloadRecaptchaCallback() {
-            grecaptcha.ready(function() {
-                resetRecaptcha();
-                var oneHundredSeconds = 100000;
-
-                // reCAPTCHAs expire after 120 seconds, so this forces a refresh just before that
-                setInterval(resetRecaptcha, oneHundredSeconds);
-            });
-        }
-
-        var newScript = document.createElement('script');
-        newScript.src = 'https://www.google.com/recaptcha/api.js?onload=onloadRecaptchaCallback&render=PUBLIC-KEY-ASSIGNED-BY-GOOGLE';
-        newScript.async = true;
-        newScript.defer = true;
-
-        document.head.appendChild(newScript);
-    }
-</script>
-```
-**As rendered by Version 2:**
-```htm 
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
-
-<div class="g-recaptcha"
-   data-sitekey="PUBLIC-KEY-ASSIGNED-BY-GOOGLE"
-   data-theme="light"
-   data-type="image"
-   data-size="normal"
-   data-tabindex="0"
-></div>
-```
 Then, to enable the validation on form submission, and the following to the ```rules()``` method in your form's **Action class**:
 
 ```php title='/plugins/app/site/actions/SendEnquiry.php'

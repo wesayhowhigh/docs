@@ -39,7 +39,7 @@ Route::get('sitemap.xml', function() {
 
 ## Menu Item Generators
 
-Menu item generators will help you create sitemap entries for plugins with slugable urls. It requires the following data to help generate the entry corectly:
+Menu item generators will help you create sitemap entries for plugins with slugable urls. It requires the following data to help generate the entry correctly:
 
 + model
 + title
@@ -100,4 +100,4 @@ class BlogMenuItemGenerator extends DefaultMenuItemGenerator
 
 ## Troubleshooting
 
-+ Duplicate URLs in the sitemap, if there are duplicates entries for the first menu item in each menu entry, please update the plugin version to `v2.1.0` (`composer require jump/oc-site-map-plugin:~2.1`)
++ **Duplicate URLs in the sitemap**: If there are duplicates entries for the first menu item in each menu entry, please update the plugin version to `v2.1.0` (`composer require jump/oc-site-map-plugin:~2.1`)

@@ -7,7 +7,7 @@ sidebar_label: Mix
 
 ## Introduction
 
-Adds Jump Mix support to October sites and compiles the assets for the october project using laravel's mix. Please reade this guide fully - if you're coming from base then most of this will already be set up for you. But it's still recommended to read this fully.
+Adds Jump Mix support to October sites and compiles the assets for the October project using [Laravel Mix](https://laravel-mix.com/). Please read this guide fully - if you're coming from `base` then most of this will already be set up for you. But it's still recommended to read this fully.
 
 ## Installation
 

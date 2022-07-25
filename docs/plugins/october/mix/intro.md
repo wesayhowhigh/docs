@@ -89,7 +89,7 @@ mix({
 
 ### The Tailwind config
 
-You should have a `tailwind.config.js` file in the root of your proeject with the following contents:
+You should have a `tailwind.config.js` file in the root of your project with the following contents:
 
 ```js title="tailwind.config.js"
 module.exports = {

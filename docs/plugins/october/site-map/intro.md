@@ -12,7 +12,7 @@ The sitemap plugin creates an XML sitemap from a menu code.
 ## Installation
 
 ```bash
-composer require jump/oc-site-map-plugin`
+composer require jump/oc-site-map-plugin
 ```
 
 ## Repository

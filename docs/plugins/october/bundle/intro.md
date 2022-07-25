@@ -48,7 +48,7 @@ import '../css/app.css';
 
 ### Node version 8
 
-Fro bundle node version 8 is the requirement. You can both/either upgrade nmv and docker:
+For bundle node version 8 is the requirement. You can both/either upgrade nmv and docker:
 
 1. To update your nvm version, set your `.nvmrc` file to `v8` - make sure you `nvm install v8` and/or `nvm use`
 2. To update your docker node service in your `docker-compose.yml` to:
@@ -83,5 +83,4 @@ So you'll now need to render these separately.
 
 ## Troubleshooting
 
-+ If on a deployment you recieve an npm build error regarding camelcase pacakge, add the following to your package.json dependencies:
-`npm i "assets-webpack-plugin":"3.9.12"`. Then commit and re-deploy.
++ If on a deployment you recieve an npm build error regarding camelcase pacakge, add the following to your package.json dependencies: `npm i "assets-webpack-plugin":"3.9.12"`. Then commit and re-deploy.

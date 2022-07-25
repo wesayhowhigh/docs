@@ -17,7 +17,7 @@ composer require jump/oc-cookie-consent-plugin`
 
 If your upgrading an older project, in your site config directoy add, `cookie.php` and paste the contents below:
 
-```php
+```php title="/config/cookie.php"
 <?php
 
 return [

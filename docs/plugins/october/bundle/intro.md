@@ -65,10 +65,6 @@ volumes:
 
 ### Render Javascript
 
-By default, Mix will render a Manifest file, a Vendor file (all of your dependencies) and an app file (your actual project code).
-
-So you'll now need to render these separately.
-
 ```html title="themes/app/partials/scripts.htm"
 <script src="{{ 'app' | bundle('js') }}"></script>
 

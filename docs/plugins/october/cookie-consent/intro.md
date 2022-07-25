@@ -15,6 +15,18 @@ The cookie consent plugin asks the user for permission on what cookies they wish
 composer require jump/oc-cookie-consent-plugin`
 ```
 
+If you're upgrading an older project, in your site config directory add, `cookie.php` and paste the contents below:
+
+```php title="/config/cookie.php"
+<?php
+
+return [
+    'unencryptedCookies' => [
+        'jump_cookie_consent',
+    ],
+];
+```
+
 ## Repository
 
 [Github](https://github.com/wesayhowhigh/oc-cookie-consent-plugin)

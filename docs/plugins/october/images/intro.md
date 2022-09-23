@@ -66,3 +66,7 @@ would be rendered in the browser as:
   <rect width="300" height="100" style="fill:rgb(0,0,255);stroke-width:3;stroke:rgb(0,0,0)" />
 </svg>
 ```
+
+### Troubleshooting
+
++ If you are receiving the error `Non-static method Jump\Images\Controllers\ImagesController::get() should not be called statically` in a website pre Laravel 6, downgrade the images plugin to v1.5. The `routes.php` file used the Laravel 6 format in version 1.6 and above.

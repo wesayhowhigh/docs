@@ -4,7 +4,7 @@ sidebar_label: Password Reset
 ---
 # Password Reset
 
-The password reset consists of two parts, emails the reset link and setting the new password using the link.
+The password reset consists of two parts; emailing the reset link and setting the new password using the link.
 
 ## Email Password Link
 

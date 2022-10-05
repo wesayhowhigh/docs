@@ -19,7 +19,7 @@ If the assets are stored in S3 then you will need to export them to your local m
 
 ### AWS Cli
 
-To export S3 files you will need the AWS Cli. If this already setup on your machine you can skip to the [S3 export command](#aws-s3).
+To export S3 files you will need the AWS CLI. If this already setup on your machine you can skip to the [S3 export command](#aws-s3).
 
 First you will need the AWS Cli installed on your machine. If it is not installed, [see here](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html).
 

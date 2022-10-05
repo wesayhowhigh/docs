@@ -15,7 +15,7 @@ After export open the sql file and check there are no postmark or other settings
 
 ## S3 and assets
 
-If the assets are stored in S3 there we will need to export them to your local machine to zip up (if the assets are local you can skip this step as there will be zip with the site files next, but this is unlikely).
+If the assets are stored in S3 then you will need to export them to your local machine to zip up (if the assets are local you can skip this step as they will be zipped with the site files next, but this is unlikely).
 
 ### AWS Cli
 

@@ -4,7 +4,7 @@ sidebar_label: Model
 ---
 # User Model
 
-The user model must be create in the prioject, it is not shipped with the plugin. The model can be created any plugin of your project, the choice depens on the project and your coding style. It can always be added to a user plugin if you find it does not fit into any specific plugin.
+The User Model must be created in the project, it is not shipped with the plugin. The Model can be created in any plugin of your project, the choice depends on the project and your coding style. It can always be added to a User Plugin if you find it does not fit into any specific plugin.
 
 ## Example migration
 

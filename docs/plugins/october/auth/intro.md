@@ -61,5 +61,5 @@ layout = "main"
 
 ## Troubleshooting
 
-+ If you are having issues installing >= 1.30 try composer require paragonie/random_compat=~2.0 first.
++ If you are having issues installing >= 1.30 try `composer require paragonie/random_compat=~2.0` first.
 + If you are receiving `undefined offset 0` set the auth class in the env `JUMP_AUTH_USER_MODEL=App\Account\Models\User`

@@ -50,7 +50,7 @@ Then zip these up in a file named `s3-assets.zip`.
 docker exec -it ubuntu_app_1 sh
 ```
 
-3. Zip all the files up
+3. Zip all the files up (ensuring you are in the `/var/www/html` directory 
 
 ```bash
 zip -r website.zip ./

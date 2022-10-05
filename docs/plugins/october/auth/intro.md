@@ -28,7 +28,7 @@ JUMP_AUTH_USER_MODEL=App\Users\Models\User
 ## Usage
 
 :::info
-It is recommended to `hideFromPages => true,` on authentication pagesections and only inlclude the in cms pages.
+It is recommended to `hideFromPages => true,` on authentication pagesections and only include them in CMS pages.
 :::
 
 ### User Model

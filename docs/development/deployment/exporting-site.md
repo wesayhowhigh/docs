@@ -147,5 +147,7 @@ Configuring the Web Application
     - Once you've generated, paste it in the .env file under GOOGLE_API_KEY and GOOGLE_MAPS_API_KEY
 
 6. Force security
-    - You can enable redirection to HTTPS by setting JUMP_HTTP_FORCE_HTTPS=true
-    - You can enable redirection to www. by setting JUMP_HTTP_FORCE_CANONICAL=true
+    - In the JUMP infrastructure, the website was secured by an SSL certificate on the AWS CloudFront Distribution and all traffic was directed through this. The website origin was then served over HTTP.
+    - This would either need recreating on your end, or alternatively an SSL certificate could be installed locally and used (this would require an update to the nginx.conf)
+    - Once an SSL certificate has been setup, you can enable redirection to HTTPS by setting JUMP_HTTP_FORCE_HTTPS=true in the .env file
+    - You can enable redirection to www. by setting JUMP_HTTP_FORCE_CANONICAL=true in the .env file

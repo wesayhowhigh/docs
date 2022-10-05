@@ -47,7 +47,7 @@ Then zip these up in a file named `s3-assets.zip`.
 2. SSH in to app container
 
 ```bash
-docker exec -it $(docker ps -f name=ubuntu_app_1 -q) sh
+docker exec -it ubuntu_app_1 sh
 ```
 
 3. Zip all the files up

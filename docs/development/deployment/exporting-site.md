@@ -59,7 +59,7 @@ zip -r website.zip ./
 4. Exit from the docker container and copy bundled file outside the container
 
 ```bash
-docker cp $(docker ps -f name=ubuntu_app_1 -q):/var/www/html/website.zip ./
+docker cp ubuntu_app_1:/var/www/html/website.zip ./
 ```
 
 5. On your local machine secure copy the bundled file locally

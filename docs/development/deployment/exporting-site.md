@@ -15,11 +15,11 @@ After export open the sql file and check there are no postmark or other settings
 
 ## S3 and assets
 
-If the assets are stored in S3 there we will need to export them to your local machine to zip up (if the assets are local you can skip this step as there will be zip with the site files next, but this is unlikely).
+If the assets are stored in S3 then you will need to export them to your local machine to zip up (if the assets are local you can skip this step as they will be zipped with the site files next, but this is unlikely).
 
 ### AWS Cli
 
-To export S3 files you will need the AWS Cli. If this already setup on your machine you can skip to the [S3 export command](#aws-s3).
+To export S3 files you will need the AWS CLI. If this already setup on your machine you can skip to the [S3 export command](#aws-s3).
 
 First you will need the AWS Cli installed on your machine. If it is not installed, [see here](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html).
 
@@ -47,10 +47,10 @@ Then zip these up in a file named `s3-assets.zip`.
 2. SSH in to app container
 
 ```bash
-docker exec -it $(docker ps -f name=ubuntu_app_1 -q) sh
+docker exec -it ubuntu_app_1 sh
 ```
 
-3. Zip all the files up
+3. Zip all the files up (ensuring you are in the `/var/www/html` directory 
 
 ```bash
 zip -r website.zip ./
@@ -59,7 +59,7 @@ zip -r website.zip ./
 4. Exit from the docker container and copy bundled file outside the container
 
 ```bash
-docker cp $(docker ps -f name=ubuntu_app_1 -q):/var/www/html/website.zip ./
+docker cp ubuntu_app_1:/var/www/html/website.zip ./
 ```
 
 5. On your local machine secure copy the bundled file locally

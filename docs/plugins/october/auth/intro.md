@@ -7,7 +7,7 @@ sidebar_label: Auth
 
 ## Introduction
 
-A plugin implementing authenication.
+A plugin implementing authentication.
 
 ## Installation
 

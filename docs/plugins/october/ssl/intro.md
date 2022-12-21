@@ -7,9 +7,13 @@ sidebar_label: SSL
 
 ## Introduction
 
+The **SSL Plugin** provides ability to install a SSL certificate for the website.
 
+When enabled, the site will always redirect from http to https.
 
 ## Installation
+
+Type `composer require jump/oc-ssl-plugin` into your project root terminal.
 
 
 ## Repository
@@ -17,11 +21,6 @@ sidebar_label: SSL
 [Github](https://github.com/wesayhowhigh/oc-ssl-plugin)
 
 
-## Configuration
-
-
 ## Usage
+See relevant pages for detailed usage information
 
-
-
-## Troubleshooting

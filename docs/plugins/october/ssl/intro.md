@@ -132,7 +132,7 @@ Depending on the SSL provider, you may also need to modify the redirect to HTTP.
 * Run `vi Caddyfile`
 * Find your site
 * Press "i" to edit the file
-* Change the redirect to something like this:
+* Change the redirect to something like this: (note the `http://` prefix - this is important and will prevent Caddy's automatic https redirect from kicking in)
 
 ```bash
 http://your-site.com {

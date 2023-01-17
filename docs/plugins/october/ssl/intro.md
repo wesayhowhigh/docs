@@ -95,3 +95,70 @@ Give it a few minutes to propagate, and if all is successful you should be able 
 
 Your manager may ask for the SSL Challenge URL to not redirect to HTTPS for the validation to work. However, ask them to use the URL as it is. 99% of the time you don't need to
 do anything and it works fine as it is.
+
+### SSL already expired?
+
+If the SSL already expired and you need to verify the file on a site that isn't safely accessible, you will also need to do the following steps:
+
+**Step 1: Disable HTTPS on the site**
+
+Open project in Semaphore and update the `.env` file:
+
+```bash
+JUMP_HTTP_FORCE_HTTPS=false
+```
+
+Redeploy the site with new configuration.
+
+**Step 2: Invalidate entire cloudfront cache**
+
+* On AWS find the Cloudfront distribution
+* Select "Invalidations" tab
+* Click "Create invalidation"
+* Add "/" as the object path
+* Confirm the invalidation by clicking "Create invalidation"
+
+
+**Step 3: Modify the redirect to HTTP**
+
+:::warning
+Please note, step 3 is not always applicable.
+:::
+
+Depending on the SSL provider, you may also need to modify the redirect to HTTP.
+
+* On AWS find the applicable redirects server LS – you'll need to modify the caddy server
+* Click "Connect using SSH"
+* Run `vi Caddyfile`
+* Find your site
+* Press "i" to edit the file
+* Change the redirect to something like this: (note the `http://` prefix - this is important and will prevent Caddy's automatic https redirect from kicking in)
+
+```bash
+http://your-site.com {
+    redir http://www.your-site.com{uri} 302
+}
+```
+
+* Press `Esc`, type `:wq` and hit `Enter` to quit and save
+* Run `sudo caddy reload`
+
+To confirm this worked, run `curl -I http://your-site.com` in your terminal. The Location value should be something like `http://www.your-site.com`
+
+This should allow you to verify the authentication file.
+
+:::warning
+When the SSL is successfully installed, don't forget to enable HTTPS on the site again.
+
+1. Update the .env file: `JUMP_HTTP_FORCE_HTTPS=true` and redeploy the site with new configuration.
+2. Revert redirect settings in the Caddy server (only applicable if you proceeded with step 3) to have the original configuration, like this:
+
+```bash
+your-site.com {
+    redir https://www.your-site.com{uri} 302
+}
+```
+
+Reload the Caddy server and run `curl -I http://your-site.com`, the Location value should soon change to something like `https://your-site.com`
+:::
+

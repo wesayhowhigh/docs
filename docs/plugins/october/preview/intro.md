@@ -99,7 +99,7 @@ class YourModel extends Model implements Previewable
 
 #### 4. Update frontend detail page queries
 
-[Read more about this here.](/plugins/october/preview/intro#how-do-we-view-it-in-the-frontend)
+[Read more about this here.](/plugins/october/preview/intro#how-to-view-it-in-the-frontend)
 
 ### How it works?
  

@@ -23,3 +23,7 @@ $ yarn build
 ```
 
 This command generates static content into the `build` directory and can be served using any static contents hosting service.
+
+
+## Hosting & Deployment
+This website is currently deployed and hosted on Vercel - sign in using the developers@ GitHub account

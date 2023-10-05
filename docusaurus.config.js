@@ -8,7 +8,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'JUMP Docs',
   tagline: 'The documentation of choice for ambitious developers',
-  url: 'https://your-docusaurus-test-site.com',
+  url: 'https://docs.jump-ops.com',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -39,7 +39,6 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: 'JUMP Docs',
         logo: {
           alt: 'JUMP',
           src: 'img/logo.svg',
@@ -65,9 +64,9 @@ const config = {
             label: 'Websites',
           },
           {
-            href: 'https://jump-team.jump-ops.com/',
+            href: 'https://hub.wesayhowhigh.com',
             position: 'right',
-            label: 'JUMP Team',
+            label: 'HUB',
           }
         ],
       },
@@ -95,11 +94,11 @@ const config = {
                 href: 'https://www.wesayhowhigh.com',
               },
               {
-                label: 'Team App',
-                href: 'https://jump-team.jump-ops.com/',
+                label: 'HUB',
+                href: 'https://hub.wesayhowhigh.com',
               },
               {
-                label: 'Github',
+                label: 'GitHub',
                 href: 'https://github.com/wesayhowhigh/',
               },
               {

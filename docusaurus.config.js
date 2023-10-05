@@ -117,6 +117,10 @@ const config = {
         additionalLanguages: ['php'],
       },
     }),
+  markdown: {
+    mermaid: true,
+  },
+  themes: ['@docusaurus/theme-mermaid'],
 };
 
 module.exports = config;

@@ -159,6 +159,6 @@ Find your website in the list, click the checkbox beside it and then click the *
 
 Once a site has been shut down, you should remove it from Postmark as it will be running periodic checks on the DNS DKIM record and will send emails complaining that it can't verify it.
 
-Simply go to the [Server](https://account.postmarkapp.com/servers) and select the server your are removing. Click on **Settings** and then **Delete server**.
+Simply go to [Servers](https://account.postmarkapp.com/servers) and select the one your are removing. Click on **Settings** and then **Delete server**.
 
 Then, go to [Sender Signatures](https://account.postmarkapp.com/signature_domains) and click the bin against the signature you are removing to delete it.

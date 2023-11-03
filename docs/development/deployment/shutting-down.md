@@ -153,3 +153,12 @@ Simply visit the Route 53 Hosted Zone for **jump-lightsail.co.uk**, find the rel
 
 Find your website in the list, click the checkbox beside it and then click the **Delete** button, confirming it in the popup.
 
+
+
+## [Postmark Account](https://postmarkapp.com/)
+
+Once a site has been shut down, you should remove it from Postmark as it will be running periodic checks on the DNS DKIM record and will send emails complaining that it can't verify it.
+
+Simply go to [Servers](https://account.postmarkapp.com/servers) and select the one your are removing. Click on **Settings** and then **Delete server**.
+
+Then, go to [Sender Signatures](https://account.postmarkapp.com/signature_domains) and click the bin against the signature you are removing to delete it.

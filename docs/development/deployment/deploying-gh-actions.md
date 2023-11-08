@@ -65,6 +65,28 @@ chmod +x /usr/local/bin/init-git-secret-script.sh
 
 ### Set up your website repository
 
+#### Your repository secrets and variables
+
+Your repository will need to have the relevant secrets and variables adding for when you make the necessary additions to the code base.
+
+Go to your repository in GitHub and go to **Settings** > **Environments** and create each environment you are looking to add.
+
+For each one, add an environment secret named `ORIGIN_IP` (the IP you will be deploying to) and an environment variable named `SITE_NAME` (usually your site name in kebab case).
+
+:::caution
+
+If you are deploying a site that is using October v3 or above, make sure you add a repository secret named `OCTOBER_LICENCE_KEY` which will contain the licence key you get when you create a new October CMS project. You can do this by going to **Settings** > **Secrets and variables** > **Actions** and adding it under **Repository secrets** in the GitHub repository.
+
+:::
+
+:::caution
+
+In some cases you may need to add additional secrets and variables depending on the makeup of the site. For any out of the ordinary sites, it’s always best to check if any others will be needed.
+
+:::
+
+#### Your GitHub Actions workflow
+
 To deploy a website, you need a GitHub Action Workflow file and it will need to be placed inside the `.github/workflows/` directory (creating it if not present).
 On the next merge to main/master/develop (depending on the October version and environment) GitHub will detect this file and run it automatically.
 

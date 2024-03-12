@@ -158,3 +158,7 @@ Remember to wrap any scripts, iframes etc. that use this new cookie in an if `co
         'jump_cookie_consent',
     ],
 ```
+
+:::warning
+For older October 1.0 sites, ensure you are on [at least 1.0.438](https://octobercms.com/support/article/cl-438) (which added support for unencrypted cookies)
+:::

@@ -86,6 +86,11 @@ php artisan newsletter:initialise-zoho YOUR_TEMPORARY_AUTHORISATION_CODE
 
 The first set of tokens will be saved in the `jump_newsletter_zoho_tokens` database table.
 
+:::note
+You will need to run this command again on your LS instance when you deploy it to UAT / production, so you get your 
+first set of tokens in the new environment.
+:::
+
 ### Usage
 
 #### Subscribe

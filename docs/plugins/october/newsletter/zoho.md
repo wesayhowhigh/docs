@@ -58,7 +58,7 @@ to get a new access token. However, firstly the application has to be granted ac
 7. Click "Create"
 8. Get Client ID and Client Secret from the "Client Secret" tab and save them in your .env file as `ZOHO_CLIENT_ID` and `ZOHO_CLIENT_SECRET`
 9. Switch to the "Generate Code" tab
-10. Enter the required scope separated by commas, e.g. `ZohoCRM.modules.ALL`. Full list of scopes is available [here](https://www.zoho.com/crm/developer/docs/api/v3/scopes.html).
+10. Enter the required scope separated by commas, e.g. `ZohoCampaigns.contact.UPDATE` (this is the scope needed for [list subscriptions](https://www.zoho.com/campaigns/help/developers/contact-subscribe.html)). Full list of scopes is available [here](https://www.zoho.com/crm/developer/docs/api/v3/scopes.html).
 11. Enter a description (it could describe what the scope covers, e.g. "Modules")
 12. Click "Create"
 13. Click on "CRM" portal, use the radio box to select your environment

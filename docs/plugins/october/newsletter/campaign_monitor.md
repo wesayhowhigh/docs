@@ -7,7 +7,7 @@ sidebar_label: Campaign Monitor
 
 ## Introduction
 
-The JUMP Newsletter **Campaign Monitor** integration will all users to subscribe and unsubscribe from the
+The JUMP Newsletter **Campaign Monitor** integration will allow users to subscribe and unsubscribe from the
 [Campaign Monitor](https://www.campaignmonitor.com) platform.
 
 ## Configuration

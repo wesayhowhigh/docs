@@ -7,7 +7,7 @@ sidebar_label: Mailchimp
 
 ## Introduction
 
-The JUMP Newsletter **Mailchimp** integration will all users to subscribe and unsubscribe from the
+The JUMP Newsletter **Mailchimp** integration will allow users to subscribe and unsubscribe from the
 [Mailchimp](https://mailchimp.com/en-gb/) platform.
 
 ## Configuration
@@ -15,7 +15,7 @@ The JUMP Newsletter **Mailchimp** integration will all users to subscribe and un
 ### Setup
 #### Ensure you have an Audience/List ID and API Key in your env file.
 ```dotenv title=".env"
-JUMP_NEWSLETTER_DRIVER=mailchimp
+JUMP_NEWSLETTER_DRIVER=mail_chimp
 MAILCHIMP_API_KEY=23b7m8i94s04cga9988128b6kb15e420-us1
 MAILCHIMP_AUDIENCE_ID=jbjblvfe456969
 ```

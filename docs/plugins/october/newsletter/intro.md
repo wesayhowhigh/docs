@@ -5,11 +5,15 @@ sidebar_label: Intro
 
 # Newsletter Plugin
 
-The JUMP Newsletter Plugin supports the following providers, **Campaign Monitor**, **HubSpot** and **Mailchimp**.
+The JUMP Newsletter Plugin supports the following providers, **Campaign Monitor**, **HubSpot**, **Mailchimp** and **Zoho**.
 
 ## Installation
 
-Type `composer require jump/oc-newsletter-plugin` into your project root terminal.
+The plugin is not included within the base repo, so if required it will need to be installed manually.
+
+```bash
+composer require jump/oc-newsletter-plugin
+```
 
 ## Configuration
 
@@ -33,6 +37,12 @@ JUMP_NEWSLETTER_DRIVER=hubspot
 
 ```dotenv title=".env"
 JUMP_NEWSLETTER_DRIVER=mailchimp
+```
+
+##### Zoho
+
+```dotenv title=".env"
+JUMP_NEWSLETTER_DRIVER=zoho
 ```
 
 ## Repository

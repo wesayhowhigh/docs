@@ -7,8 +7,8 @@ sidebar_label: HubSpot
 
 ## Introduction
 
-The JUMP Newsletter **HubSpot** integration will all users to subscribe, update and unsubscribe from the
-[HubSpot Monitor](https://www.hubspot.com) platform.
+The JUMP Newsletter **HubSpot** integration will allow users to subscribe, update and unsubscribe from the
+[HubSpot](https://www.hubspot.com) platform.
 
 ## Configuration
 

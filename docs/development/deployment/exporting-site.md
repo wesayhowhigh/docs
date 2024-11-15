@@ -118,7 +118,7 @@ The wetransfer link will need to be given to the client contact along with the i
 
 
 
-## Instructions for the Client (OC1 websites)
+## Instructions for the Client
 
 :::warning
 If the client is not using their own Google account for analytics or tag manager (a.k.a it is created by us). Then remove the reference to step 4 for that client (and adjust the other numbers accordingly)

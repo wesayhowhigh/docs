@@ -25,6 +25,8 @@ The JUMP HTTP Plugin has the following features.
 
 + **[Remove `index.php`](remove-index-php)** - Middleware to remove index.php and redirect.
 
++ **[IP Whitelisting](ip-whitelisting)** - Block access to websites except for whitelisted IPs
+
 ## Installation
 
 ```bash

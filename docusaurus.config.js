@@ -57,17 +57,6 @@ const config = {
             position: 'left',
             label: 'Plugins',
           },
-          {
-            type: 'doc',
-            docId: 'websites/intro',
-            position: 'left',
-            label: 'Websites',
-          },
-          {
-            href: 'https://hub.wesayhowhigh.com',
-            position: 'right',
-            label: 'HUB',
-          }
         ],
       },
       footer: {
@@ -92,10 +81,6 @@ const config = {
               {
                 label: 'Website',
                 href: 'https://www.wesayhowhigh.com',
-              },
-              {
-                label: 'HUB',
-                href: 'https://hub.wesayhowhigh.com',
               },
               {
                 label: 'GitHub',

@@ -136,7 +136,7 @@ Configuring the Web Application
 
 1. Change Database credentials in .env file:
     - Set DB_HOST, DB_DATABASE, DB_USERNAME and DB_PASSWORD to match your database details
-
+Hub
 2. To get the website sending Emails you'll need to update the mail settings in .env file
     - Current site used Postmark for transactional emails: https://postmarkapp.com but various mail drivers can be used. See https://laravel.com/docs/5.5/mail for more details
     - Set MAIL_DRIVER, MAIL_HOST, MAIL_PORT, MAIL_ENCRYPTION, MAIL_USERNAME, MAIL_PASSWORD to match your desires

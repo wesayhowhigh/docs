@@ -47,6 +47,10 @@ Then zip these up in a file named `s3-assets.zip`.
 2. SSH in to app container
 
 ```bash
+docker exec -it ubuntu-app-1 sh
+```
+or for old sites:
+```bash
 docker exec -it ubuntu_app_1 sh
 ```
 
@@ -58,6 +62,10 @@ zip -r website.zip ./
 
 4. Exit from the docker container and copy bundled file outside the container
 
+```bash
+docker cp ubuntu-app-1:/var/www/html/website.zip ./
+```
+or for old sites:
 ```bash
 docker cp ubuntu_app_1:/var/www/html/website.zip ./
 ```
@@ -101,14 +109,16 @@ The follow should be changed:
 
 ## Finally
 
-Then Once all the above is done, create a [WeTranfer](https://wetransfer.com/) link with the following in:
+Then Once all the above is done, create a [WeTransfer](https://wetransfer.com/) link with the following in:
 - Database SQL file
 - `website.zip`
 - `s3-assets.zip`
 
 The wetransfer link will need to be given to the client contact along with the instructions below.
 
-## Instructions for the Client
+
+
+## Instructions for the Client (OC1 websites)
 
 :::warning
 If the client is not using their own Google account for analytics or tag manager (a.k.a it is created by us). Then remove the reference to step 4 for that client (and adjust the other numbers accordingly)
@@ -116,8 +126,8 @@ If the client is not using their own Google account for analytics or tag manager
 
 The website requires the following from the webserver:
 
-- PHP 7.1+
-- PHP FPM 7
+- PHP 7.1+, 8.1+ or 8.3+ (depending on version of PHP specified in 'composer.json')
+- PHP FPM 7 or 8 depending on version of PHP specified in 'composer.json')
 - NGINX (Apache can be configured but is out of scope of this document)
 
 The website ZIP will need to be unzipped to the webserver and then the s3-assets zip can be unzipped into the /storage/app directory. This should give you /storage/app/media and /storage/app/uploads.

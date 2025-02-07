@@ -23,6 +23,7 @@ If you're upgrading an older project, in your site config directory add, `cookie
 return [
     'unencryptedCookies' => [
         'jump_cookie_consent',
+        'jump_cookie_consent_4', // If you're using version >4
     ],
 ];
 ```
@@ -35,6 +36,14 @@ return [
 
 ### Publishing Plugin Assets
 
+#### Herd
+In the root of the project run
+```bash
+herd php artisan vendor:publish --tag=cookie-assets
+```
+with `--force` if necessary
+
+#### Docker
 Inside your docker container, `docker-compose exec app sh`, run
 
 ```bash
@@ -81,6 +90,17 @@ For cookie perfence types that are optional, any scripts, snippets or markup tha
     {{ tag_manager('script') }}
 
 {% endif %}
+```
+
+:::info
+Google Consent Mode in v4 
+:::
+
+If you're using version 4 or higher, Google Consent mode is baked in. You no longer need to wrap `{{ tag_manager('script') }}` in an `if` check. If upgrading a website, please remove the `if` check.
+
+It should just read:
+```php
+    {{ tag_manager('script') }}
 ```
 
 ## Cookie Preference Types
@@ -148,14 +168,24 @@ Each cookie type will be listed on the cookie preferences page so users can cust
 Remember to wrap any scripts, iframes etc. that use this new cookie in an if `cookie_preferences_check`, so it is not ran before accepting or denying.
 :::
 
+:::info
+Google Consent Mode in v4
+:::
+
+`CookieBase` now has a new `getGoogleConsentType` method for returning a [Google Consent Type](https://support.google.com/analytics/answer/12334711?hl=en) string. If provided, the user accepting or denying that cookie will also set their consent type within GTM (via `gtag`)
+
+- [Google Consent Overview](https://developers.google.com/tag-platform/security/concepts/consent-mode)
+- [Google Consent Types](https://support.google.com/analytics/answer/12334711?hl=en)
+
 ## Troubleshooting
 
 + If you receive an error when viewing the cookie preferences page the first time, be sure to go to the cookie consent settings and do the initial save. `/backend/system/settings/update/jump/cookieconsent/settings#primarytab-consent-popup`
-+ If the cookie popup is showing on every page after it has been dismissed or accepted, check the config/cookie.php file of the site has the cookie listed as unencrypted so the JavaScript can read it.
++ If the cookie popup is showing on every page after it has been dismissed or accepted, check the config/cookie.php file of the site has the cookie listed as unencrypted so the JavaScript can read it (Should only apply to sites on October v1)
 
 ```php
     'unencryptedCookies' => [
         'jump_cookie_consent',
+        'jump_cookie_consent_4', // If you're using version >4
     ],
 ```
 

@@ -27,4 +27,3 @@ This command generates static content into the `build` directory and can be serv
 
 ## Hosting & Deployment
 This website is currently deployed and hosted on Vercel - sign in using the developers@ GitHub account
-#

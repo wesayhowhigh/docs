@@ -38,6 +38,37 @@ This will initialise the new project as a fresh Github project to track changes 
 cp .example.env .env
 ```
 
+### Herd setup 
+Once Herd is installed globally, you can run `herd link` to set up the current directory as a Herd project.
+
+```shell
+herd link
+```
+You can now install composer dependencies using:
+```shell
+herd composer install
+```
+and Node dependencies using:
+```shell title="Instruct Node Version Manager to use the Node version defined in the .nvmrc file"
+nvm use
+```
+```shell title="Install Node packages"
+npm install
+```
+```shell title="Run the development script and build the bundle"
+npm run dev
+```
+
+#### Database
+
+If you have a Herd Pro licence, create a database service inside the Herd UI.
+
+If not, we recommend using [DBngin](https://dbngin.com/).
+
+Remember to add the database details to your `.env` file
+
+## Legacy sites - using Docker
+
 ### Install PHP packages
 
 Use your systems composer or the `dev` script to install the PHP packages:

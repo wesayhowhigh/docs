@@ -7,10 +7,14 @@ sidebar_label: Introduction
 On your Mac you'll likely to need the following installed:
 
 - [GIT](https://git-scm.com/download/mac) - For working on projects
-- [Composer](https://getcomposer.org/) - For installing PHP Packages
-- [Docker Desktop](https://www.docker.com/products/docker-desktop/) - For running Docker containers
+- [Laravel Herd](https://herd.laravel.com/) - Our newer method for running websites locally (handles Composer, PHP and Node versions for you)
+- [Composer](https://getcomposer.org/) - Optional. For installing PHP Packages
+-[Node & NPM](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) (Node Package Manager)- For installing Javascript packages and running node commands. Minimum version is 8, with most newer sites running on 14+
+- [NVM](https://github.com/nvm-sh/nvm#installing-and-updating) (Node Version Manager) - For running multiple versions of Node
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/) - For running legacy websites (OctoberCMS v1 and v1.1)using Docker containers
 
-There is a `/dev` script in the root of the [Base October Project](https://github.com/wesayhowhigh/base-3) that runs composer, node and php commands through specific Docker containers. 
+## Legacy websites
+There is a `/dev` script in the root of most legacy projects that runs composer, node and php commands through specific Docker containers. 
 But if you're wanting to run the commands locally, you'll also need:
 
 - [Node & NPM](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) (Node Package Manager)- For installing Javascript packages and running node commands. Minimum version is 8, with most newer sites running on 14+

@@ -105,6 +105,7 @@ OC4 enforces stricter auto-escaping for security. Any function or component that
 
 Update your `.env.example` and developer `.env` files with these new keys if needed:
 
+- **System**: Set `LINK_POLICY` to `secure` rather than `detect` to enforce HTTPS links. (Failure to do so may result in failure to load assets as it incorrect detects 'http' rather than 'https')
 - **Cache**: `CACHE_STORE`, `DB_CACHE_CONNECTION`, `DB_CACHE_LOCK_CONNECTION`, `REDIS_CACHE_CONNECTION`
 - **Database**: `DB_CHARSET`, `DB_COLLATION`
 - **App**: `APP_FALLBACK_LOCALE`, `APP_FAKER_LOCALE`

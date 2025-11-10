@@ -5,7 +5,7 @@ sidebar_label: Upgrading to OC4
 
 # October CMS v3 → v4 Upgrade Guide
 
-This guide is based on the uncommitted changes from upgrading this project from October CMS v3 to v4.
+This guide is based on the [changes from upgrading this project](https://github.com/wesayhowhigh/and-studios/commit/8485989fce572b7f77b44e86c0154eeae85c9ed3) from October CMS v3 to v4.
 
 ## Overview
 

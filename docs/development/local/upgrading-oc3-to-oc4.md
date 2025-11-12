@@ -109,7 +109,7 @@ Update your `.env.example` and developer `.env` files with these new keys if nee
 - **Cache**: `CACHE_STORE`, `DB_CACHE_CONNECTION`, `DB_CACHE_LOCK_CONNECTION`, `REDIS_CACHE_CONNECTION`
 - **Database**: `DB_CHARSET`, `DB_COLLATION`
 - **App**: `APP_FALLBACK_LOCALE`, `APP_FAKER_LOCALE`
-- **CMS**: `CMS_ROUTE_CACHE`, `CMS_ASSET_CACHE`, `CMS_STRICT_VARIABLES`, `CMS_EXCEPTION_POLICY_V1`
+- **CMS**: Ensure `FORCE_BACKEND_SECURE` is set to `false`. New vars are: `CMS_ROUTE_CACHE`, `CMS_ASSET_CACHE`, `CMS_STRICT_VARIABLES`, `CMS_EXCEPTION_POLICY_V1`
 - **Security**: `APP_PREVIOUS_KEYS` (for key rotation)
 
 ## 6. Post-Upgrade Checklist
@@ -124,4 +124,36 @@ Update your `.env.example` and developer `.env` files with these new keys if nee
     - Are components that output HTML (SVGs, forms) visible?
     - Do file-system-dependent features (S3 uploads, image resizing) work?
 
+# 7. Common Pitfalls
+
+### Backend stuck in loop on Lightsail?
+
+If you're using Lightsail and the backend is stuck in a redirect loop, ensure the following in your .env:
+
+```bash
+FORCE_BACKEND_SECURE=false
+```
+
+### ImageServiceProvider not found
+
+If you see the following error:
+
+```php
+In ProviderRepository.php line 205:
+                                                             
+  Class "Intervention\Image\ImageServiceProvider" not found  
+                                                     
+```
+then delete the following files and try again:
+`/storage/framework/classes.php`
+`/storage/framework/services.php`
+`/storage/framework/packages.php`
+
+### Missing combiner folder error
+
+If you see the following error:
+
+```php
+The "PROJECT_NAME/storage/cms/combiner" directory does not exist
+```
 

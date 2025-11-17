@@ -95,6 +95,12 @@ OC4 enforces stricter auto-escaping for security. Any function or component that
 {# Renders the reCAPTCHA widget #}
 {{ recaptcha() | raw }}
 
+{# Renders the tag manager scripts in the site layouts #}
+{{ tag_manager('iframe') | raw }}
+
+{# Renders the tag manager scripts in the meta partial #}
+{{ tag_manager('script') | raw }}
+
 {# Renders an inline SVG file #}
 {{ rawSvg('themes/app/assets/images/logo.svg') | raw }}
 ```

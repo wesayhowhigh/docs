@@ -5,7 +5,7 @@ sidebar_label: Intro
 
 # Newsletter Plugin
 
-The JUMP Newsletter Plugin supports the following providers, **Campaign Monitor**, **HubSpot**, **Mailchimp** and **Zoho**.
+The JUMP Newsletter Plugin supports the following providers, **Campaign Monitor**, **HubSpot**, **Klaviyo**, **Mailchimp** and **Zoho**.
 
 ## Installation
 
@@ -31,6 +31,12 @@ JUMP_NEWSLETTER_DRIVER=campaign_monitor
 
 ```dotenv title=".env"
 JUMP_NEWSLETTER_DRIVER=hubspot
+```
+
+##### Klaviyo
+
+```dotenv title=".env"
+JUMP_NEWSLETTER_DRIVER=klaviyo
 ```
 
 ##### Mailchimp

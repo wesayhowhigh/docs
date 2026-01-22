@@ -147,3 +147,201 @@ class BlogPostList extends DynamicPage
     }
 }
 ```
+
+### Gated Pages
+Gated Pages were introduced in [Version 6.1.0](https://github.com/wesayhowhigh/oc-pages-plugin/releases/tag/6.1.0). This feature allows backend users to restrict access to selected pages by placing them behind a form, requiring visitors to submit their details before they can view the page content.
+
+The gating option is available for static pages and can be found under the Page's Settings, beneath the Layout selection. Once enabled, and provided the selected layout includes the required gated form page section, the page will be hidden behind a form. The form itself is managed via the page section within the site.
+
+At the time of writing, this feature is only available for static pages. CMS and dynamic pages are not affected, but they also do not support gated functionality.
+
+When a form is submitted, the user’s details are stored in the Gated Requests plugin for future reference. An optional internal notification email can also be enabled to alert backend users when a submission is received.
+
+#### Gated Request Settings
+
+Gated request notifications can be configured within the Gated Request Settings. Here, you can define the form heading, tagline, and the email addresses that should receive submission notifications. Leave the email field empty if no notifications are required.
+
+#### Setup
+
+##### Step 1 - Create the Gated Request Form PageSection
+```htm title="/plugins/app/site/pagesections/gatedrequestform/default.htm"
+{% set currentPageId = this.page.apiBag.staticPage.id %}
+
+{% section 'genericHeroPanel' title=this.page.title %}
+
+<section class="c-GatedRequestForm py-res--70" id="{{ self.getId() }}">
+    {% if gatedRequestSettings('gatedFormHeading') or gatedRequestSettings('gatedFormTagline') %}
+        <div class="mb-11">
+            <div class="px-res--main">
+                <div class="mw mw--1145">
+                    <div class="">
+                        {% if gatedRequestSettings('gatedFormHeading') %}
+                            <h2 class="text-center mb-4 leading-[1] text-6xl lg:text-7xl xl:text-8xl font-normal font-subheading">
+                                {{ gatedRequestSettings('gatedFormHeading') }}
+                            </h2>
+                        {% endif %}
+                        {% if gatedRequestSettings('gatedFormTagline') %}
+                            <p class="text-center text-xl">
+                                {{ gatedRequestSettings('gatedFormTagline') }}
+                            </p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+    <div class="px-res--main">
+        <div class="mw mw--1145">
+            <div>
+                <form class="c-Form"
+                      data-request="{{ actions.submit }}"
+                      data-request-validate
+                      data-request-flash
+                      data-request-redirect="/">
+                    {{ form_token() }}
+
+                    <div class="grid grid-cols-1 gap-x-7 gap-y-10 max-w-[557px] mx-auto">
+                        <div class="w-full">
+                            {% partial 'form/input'
+                                name='name'
+                                placeholder='Your name'
+                                label='NAME'
+                                inputClass='c-Form__input'
+                                required=true
+                            %}
+                        </div>
+                        <div class="w-full">
+                            {% partial 'form/input'
+                                name='company'
+                                placeholder='Your company'
+                                label='COMPANY'
+                                inputClass='c-Form__input'
+                                required=true
+                            %}
+                        </div>
+                        <div class="w-full">
+                            {% partial 'form/input'
+                                name='email'
+                                placeholder='Your email address'
+                                label='EMAIL'
+                                type='email'
+                                inputClass='c-Form__input'
+                                required=true
+                            %}
+                        </div>
+
+                        <div>
+                            {% partial 'form/checkbox'
+                                name='terms'
+                                label='I have read and agree to the <a href="https://accordience.com/privacy/" target="_blank" rel="noopener noreferrer">Privacy Policy</a>'
+                                required=true
+                            %}
+
+                            {% partial 'form/recaptcha' %}
+
+                            <input type="hidden" name="page_id" value="{{ currentPageId }}">
+                        </div>
+
+                        <div class="text-center">
+                            {% partial 'form/submit'
+                                label='SUBMIT'
+                            %}
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+```
+
+##### Step 2 - Add the Gated Request Action
+```yml title="/plugins/app/site/pagesections/gatedrequestform/actions.yml"
+submit:
+  type: jump_pages_submitGatedRequestForm
+  params:
+    name: "#name"
+    company: "#company"
+    email: "#email"
+    page_id: '#page_id'
+    terms: "#terms"
+    g-recaptcha-response: "#g-recaptcha-response"
+    successMessage: "Thank you for submitting this form."
+```
+
+##### Step 3 - Add conditional to every layout
+```htm title="/themes/app/layouts/main.htm"
+<main id="main">
+    {% component 'commentToolbar' %}
+
+    {% if this.page.gated and not userHasAccessToGatedPage(this.page) %}
+        {% section 'gatedRequestForm:main' %}
+    {% else %}
+        {% page %}
+    {% endif %}
+</main>
+```
+
+##### Step 4 - Add internal confirmation email (if needed)
+```htm title="/plugins/app/site/pagesections/gatedrequestform/default.htm"
+subject=subject
+==
+<table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#ffffff">
+    <tr>
+        <td>
+            <img src="{{ url('/themes/app/assets/images/logo-red.png') }}" alt="Logo" style="width: 140px; margin: 20px auto 40px;" width="140" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p>
+                Hi there,
+            </p>
+        </td>
+    </tr>
+    <tr>
+        <td height="5">&nbsp;</td>
+    </tr>
+    <tr>
+        <td>
+            <p>
+                You received a new gated request submission. See details below.
+            </p>
+        </td>
+    </tr>
+    <tr>
+        <td height="5">&nbsp;</td>
+    </tr>
+    <tr>
+        <td>
+            <p><strong>Name</strong>: {{ name }}</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p><strong>Company</strong>: {{ company }}</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p><strong>Email address</strong>: {{ email }}</p>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <p><strong>Page accessed</strong>: {{ pageTitle }}</p>
+        </td>
+    </tr>
+    <tr>
+        <td height="5">&nbsp;</td>
+    </tr>
+    <tr>
+        <td>
+            <p>
+                Kind regards<br/>
+            </p>
+        </td>
+    </tr>
+</table>
+```

@@ -2,7 +2,7 @@
 sidebar_position: 1
 sidebar_label: Forms
 ---
-# Feeds Plugin
+# Forms Plugin
 
 ## Introduction
 The forms plugin allows you to build custom forms through OctoberCMS for use within October projects.
